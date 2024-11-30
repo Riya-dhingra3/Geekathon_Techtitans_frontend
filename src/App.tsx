@@ -2,34 +2,49 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
+import Analysis from './component/Analysis'
+import Login from './component/Login'
+import Signup from './component/Signup'
+import WithAuthProtection from './component/WithAuthProtection'
+import { signOut } from 'firebase/auth'
 
+
+import { auth } from './firebase-config'
+import Home from './component/HomePage'
 function App() {
   const [count, setCount] = useState(0)
-
+  const Protected=WithAuthProtection(Home)
+  
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <div className="App">
+
+     <h1 className='text-3xl'>hello</h1>
+     <button onClick={handleSignout}>Logout</button>
+    
+     <Routes>
+     <Route path='/' element={< Protected/>}></Route>
+     <Route path='/Analysis' element={<Analysis/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/signup' element={<Signup/>}></Route>
+     </Routes>
+    </div>
+    </BrowserRouter>
+    
   )
+
+  const navigate=useNavigate()
+  async function handleSignout(){
+    signOut(auth)
+  .then(() => {
+    console.log("User signed out successfully.");
+    navigate('/login')
+  })
+  .catch((error) => {
+    console.error("Error signing out:", error);
+  });
+  }
 }
 
 export default App

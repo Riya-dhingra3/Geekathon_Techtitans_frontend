@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate, useNavigation } from "react-router-dom";
 
 // Add interface for repository type
 interface Repository {
@@ -13,10 +13,14 @@ interface Repository {
 }
 
 const Home: React.FC = () => {
+  const navigate=useNavigate()
   const location = useLocation();
   const repoParam = location?.state?.repos as Repository[];
-
+ 
   const [repos, setRepos] = useState<Repository[] | undefined>(repoParam);
+    function repoDetails(repo: any){
+        navigate('/Analysis',{state: {repo: repo}})
+    }
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortBy, setSortBy] = useState<"name" | "watchers" | "date">("name");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
@@ -103,6 +107,7 @@ const Home: React.FC = () => {
         </div>
         {sortedAndFilteredRepos?.map((repo) => (
           <div
+          onClick={repoDetails}
             key={repo.id}
             className="w-full h-fit p-4 flex flex-row border-[#FFFFFF]/10 border-t-[1px]"
           >
