@@ -89,6 +89,37 @@ const Home: React.FC = () => {
   };
 
   return (
+    <div className="min-h-[100vh] w-full bg-grey-0 px-[10%] relative">
+      <div className="w-full flex items-center justify-center flex-row py-4">
+        <div className="w-[50%]">
+          <div className="text-white text-[18px] font-[800]">Your Repositries</div>
+        </div>
+      <div className="w-full flex flex-row items-center justify-center gap-2 w-[50%]">
+        <input
+          type="text"
+          placeholder="Search repositories..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="flex-[3] flex-2 p-2 rounded bg-[#FFFFFF]/10 text-white border border-[#FFFFFF]/20 focus:outline-none focus:border-white"
+        />
+        <div className="relative flex-1  z-[10] flex flex-row gap-2">
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as "name" | "watchers" | "date")}
+            className="flex-1 p-2 rounded bg-[#FFFFFF]/10 text-white border border-[#FFFFFF]/20 focus:outline-none focus:border-white"
+          >
+            <option value="name">Name</option>
+            <option value="watchers">Watchers</option>
+            <option value="date">Date</option>
+          </select>
+          <button
+            onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+            className="flex-1 p-2 rounded bg-[#FFFFFF]/10 text-white border border-[#FFFFFF]/20 focus:outline-none focus:border-white"
+          >
+            {sortOrder === "asc" ? "↑" : "↓"}
+          </button>
+        </div>
+      </div>
     <div className="flex w-full h-[100vh] flex-row justify-between bg-[#161B21] ">
       <div className="w-[20%] min-h-full p-[1%]   ">
         <Sidebar />
