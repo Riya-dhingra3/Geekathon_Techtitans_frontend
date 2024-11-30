@@ -5,7 +5,8 @@ import {
 import React, { useState } from "react";
 import { auth } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
-import { Chart } from "./Chart";
+// import { Chart } from "./Chart";
+import { PullRequestChart } from "./PR_Chaart";
 // Define types for the data fetched from GitHub
 interface Repo {
   name: string;
@@ -91,7 +92,7 @@ const Login: React.FC = () => {
       ) : (
         <button onClick={login}>Github Login</button>
       )}
-      <Chart />
+      <PullRequestChart />
     </div>
   );
 };
