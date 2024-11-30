@@ -31,11 +31,11 @@ const Login: React.FC = () => {
       // Get the credential to extract the access token
       const credential = GithubAuthProvider.credentialFromResult(result);
       const credentialToken = credential?.accessToken;
-
+      
       if (credentialToken) {
         console.log("credential access token", credentialToken);
         console.log(result.user);
-
+        console.log('photo url is',result.user.photoURL)
         // GitHub username or organization name
         const token = credentialToken; // Use the token from the credential
 
@@ -67,7 +67,7 @@ const Login: React.FC = () => {
             if (response.ok) {
               const repos: Repo[] = await response.json();
               console.log("Repositories:", repos);
-              navigate("/", { state: { repos: repos } });
+              navigate("/", { state: { repos: repos,photoUrl:  result.user.photoURL} });
             } else {
               console.error(
                 "Error fetching repositories:",
