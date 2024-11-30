@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate, useNavigation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // Add interface for repository type
 interface Repository {
@@ -17,10 +17,11 @@ const Home: React.FC = () => {
   const location = useLocation();
   const repoParam = location?.state?.repos as Repository[];
  
-  const [repos, setRepos] = useState<Repository[] | undefined>(repoParam);
-    function repoDetails(repo: any){
+  const [repos] = useState<Repository[] | undefined>(repoParam);
+    function repoDetails(repo: unknown){
         navigate('/Analysis',{state: {repo: repo}})
     }
+    
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortBy, setSortBy] = useState<"name" | "watchers" | "date">("name");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
