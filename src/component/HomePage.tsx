@@ -50,7 +50,7 @@ const Home: React.FC = () => {
   });
 
   return (
-    <div className="min-h-[100vh] bg-[#1E1E1E] px-[10%] relative">
+    <div className="min-h-[100vh] w-full bg-grey-0 px-[10%] relative">
       <div className="w-full flex items-center justify-center flex-row py-4">
         <div className="w-[50%]">
           <div className="text-white text-[18px] font-[800]">Your Repositries</div>
