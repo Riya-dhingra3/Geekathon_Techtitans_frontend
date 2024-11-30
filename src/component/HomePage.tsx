@@ -20,7 +20,13 @@ const Home: React.FC = () => {
   const repoParam = location?.state?.repos as Repository[];
   const repoParamPhoto = location?.state?.photoUrl;
 
-  const [repos, setRepos] = useState<Repository[] | undefined>(repoParam);
+  // const [repos, setRepos] = useState<Repository[] | undefined>(repoParam);
+ 
+  const [repos] = useState<Repository[] | undefined>(repoParam);
+    function repoDetails(repo: unknown){
+        navigate('/Analysis',{state: {repo: repo}})
+    }
+    
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortBy, setSortBy] = useState<"name" | "watchers" | "date">("name");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
@@ -28,9 +34,9 @@ const Home: React.FC = () => {
 
   const ITEMS_PER_PAGE = 7;
 
-  const repoDetails = (repo: Repository) => {
-    navigate("/Analysis", { state: { repo: repo } });
-  };
+  // const repoDetails = (repo: Repository) => {
+  //   navigate("/Analysis", { state: { repo: repo } });
+  // };
    
   function colorDetermine(visibility: string) {
     switch (visibility) {
@@ -96,7 +102,7 @@ const Home: React.FC = () => {
           <div className="w-[50%]">
             <div className="text-[#EEF0F4] text-[19px] ">Your Repositories</div>
           </div>
-          <div className="w-full flex flex-row items-center justify-center gap-2 w-[50%]">
+          <div className="w-full flex flex-row items-center justify-center gap-2">
             <input
               type="text"
               placeholder="Search"
@@ -141,7 +147,7 @@ const Home: React.FC = () => {
               onClick={() => repoDetails(repo)}
               className="w-full h-fit p-4 flex flex-row border-[#FFFFFF]/10 border-t-[1px]"
             >
-              <div className="font-bold font-[16px] flex items-center flex-[3] text-[#EEF0F4]">
+              <div className="font-bold text-[16px] flex items-center flex-[3] text-[#EEF0F4]">
                 {repo.name}
               </div>
               <div className="font-semibold text-[16px] flex items-center flex-1 text-[#EEF0F4]">

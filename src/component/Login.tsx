@@ -5,7 +5,8 @@ import {
 import React, { useState } from "react";
 import { auth } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
-
+// import { Chart } from "./Chart";
+import { PullRequestChart } from "./PR_Chaart";
 // Define types for the data fetched from GitHub
 interface Repo {
   name: string;
@@ -22,7 +23,7 @@ const Login: React.FC = () => {
   const provider = new GithubAuthProvider();
   provider.addScope("repo");
 
-  const [logged, setLogged] = useState<boolean>(false);
+  const [logged] = useState<boolean>(false);
 
   async function login() {
     try {
@@ -37,7 +38,6 @@ const Login: React.FC = () => {
         console.log(result.user);
         console.log('photo url is',result.user.photoURL)
         // GitHub username or organization name
-        const token = credentialToken; // Use the token from the credential
 
         async function getUserName() {
           const responseUser = await fetch("https://api.github.com/user", {
@@ -92,6 +92,7 @@ const Login: React.FC = () => {
       ) : (
         <button onClick={login}>Github Login</button>
       )}
+      <PullRequestChart />
     </div>
   );
 };
