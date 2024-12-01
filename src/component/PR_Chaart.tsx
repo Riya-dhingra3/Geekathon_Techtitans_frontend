@@ -159,7 +159,6 @@ import { Bar, BarChart, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recha
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -220,7 +219,7 @@ export function PullRequestChart({repo_url}:{repo_url:string}): JSX.Element {
   );
   if (loading) {
      return (
-            <Card className="border-none flex-1 w-full bg-[#1D232C]">
+            <Card className="border-none h-[420px] w-full bg-[#1D232C]">
               <CardContent className="flex h-[400px] w-full border-none flex-col gap-4 items-start justify-center h-full">
                 <Skeleton className="w-full bg-[#FFFFFF]/10 h-[50%] rounded-[8px]" />
                 <Skeleton className="w-full bg-[#FFFFFF]/10 h-[10%] rounded-[8px]" />
