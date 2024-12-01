@@ -1,4 +1,3 @@
-import React from "react";
 import { MdSpaceDashboard } from "react-icons/md";
 import { IoChatbox } from "react-icons/io5";
 import { IoIosNotifications } from "react-icons/io";

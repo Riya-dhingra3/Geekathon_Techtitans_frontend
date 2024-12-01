@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { IoMdMenu } from "react-icons/io";
 type HeaderProps={
     photoUrl: string; 
