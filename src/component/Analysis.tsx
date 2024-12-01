@@ -1,8 +1,7 @@
 import { techToFileTypes } from '@/constants/FileTypes';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// Define the structure of the repo parameter object
 interface RepoParam {
   name: string;
   languages_url: string;

@@ -20,16 +20,16 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="flex w-full min-h-full flex-col bg-[#1D232C] text-white justify-between rounded-xl p-2 ">
+    <div className="flex w-[18%] min-h-[96vh] fixed top-[2vh] left-2 flex-col bg-[#1D232C] text-white justify-between rounded-xl p-2 ">
       <div>
         <div className="flex gap-2">
           <img
-            src="https://www.istockphoto.com/illustrations/artificial-intelligence-logo"
+            src="/assets/final logo.png"
             alt="Artificial Intelligence Logo"
-            className="h-[50px] w-[50px] rounded-xl"
+            className="h-[60px] w-[60px] rounded-xl"
           ></img>
-          <div className="w-full text-xl text-left text-[#586A84] py-4 px-4  hover:text-sky-400 hover:bg-gray-800 transition-all duration-200 mb-2 ">
-            <span>Name</span>
+          <div className="w-full text-[24px] text-left text-[#DDE1E8] font-[700] py-4 px-4  mb-2 ">
+            <span>CodeLens</span>
           </div>
         </div>
 

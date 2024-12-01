@@ -2,40 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-.blob {
+.blob2{
   position: absolute;
   opacity: 0.5;
   width: 500px;
   aspect-ratio: 1/1;
-  animation: animate 10s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite
-    alternate forwards;
   filter: blur(10px);
   background: linear-gradient(
     47deg,
     #5754F8,
     #DD35A0
   );
-
-  /*  Optional  */
-  /*   box-shadow: inset 50px 50px 17px 0px #ff588b,
-    inset 100px 100px 17px 0px #66319f; */
+  animation: animate 10s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite
+  alternate forwards;
+}
+.blob {
+  position: absolute;
+  opacity: 0.5;
+  width: 160%;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  animation: animate 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite
+    alternate forwards;
+  background: radial-gradient(
+    circle at center,
+    rgba(95, 77, 178, 1) 0%,
+    rgba(85, 57, 178, 0.8) 40%,
+    rgba(85, 57, 178, 0.4) 70%,
+    rgba(85, 57, 178, 0.2) 100%
+  );
+  filter: blur(20px);
 }
 
 @keyframes animate {
   0% {
  
-    border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
+    scale: 1.00;
   }
   50% {
   
-    border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
-    rotate: 41deg;
-    scale: 1.15;
+  
+    scale: 1.05;
   }
   100% {
    
-    border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
-    rotate: -60deg;
-    scale: 1.05;
+ 
+    scale: 1.00;
   }
 }

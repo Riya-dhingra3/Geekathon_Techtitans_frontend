@@ -8,7 +8,7 @@ const Header = ({photoUrl}: HeaderProps) => {
         console.log('photo url is',photoUrl)
     },[])
   return (
-    <div className='w-full flex flex-row justify-between items-center bg-[#1D232C] rounded-xl p-1 mb-2'>
+    <div className='w-full flex flex-row justify-between items-center bg-[#1D232C]  rounded-xl p-1 mb-2'>
         <div className='flex flex-row  items-center  '>
         <button className="w-full text-[17px] text-left text-[#586A84] py-4 px-4  hover:text-sky-400 hover:bg-gray-800 transition-all duration-200">
         <IoMdMenu color="[#DDE1E8]" size={27}/>
