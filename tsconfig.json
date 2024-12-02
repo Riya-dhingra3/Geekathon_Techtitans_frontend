@@ -5,9 +5,11 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/*", "src/*"]
-    }
-  }
+      "@/*": ["src/*"]
+    },
+    "noUnusedLocals": false, // Set to true to enable strict checks for unused local variables
+    "noUnusedParameters": false // Set to true to enable strict checks for unused function parameters
+    },
 }

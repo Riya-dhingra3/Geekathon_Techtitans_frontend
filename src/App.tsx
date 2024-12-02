@@ -10,6 +10,8 @@ import { Chart } from './component/Chart'
 
 import { auth } from './firebase-config'
 import Home from './component/HomePage'
+import Layout from './component/Layout'
+
 function App() {
   const Protected=WithAuthProtection(Home)
   
@@ -21,11 +23,13 @@ function App() {
      <button onClick={handleSignout}>Logout</button> */}
     
      <Routes>
-     <Route path='/' element={< Protected/>}></Route>
-     <Route path='/Analysis' element={<Analysis/>}></Route>
-      <Route path='/login' element={<Login/>}></Route>
-      <Route path='/signup' element={<Signup/>}></Route>
-      <Route path="/chart" element={<Chart />} />
+      <Route path='/' element={<Layout/>}>
+     <Route index element={< Home/>}></Route>
+     <Route path='Analysis' element={<Analysis/>}></Route>
+      <Route path='login' element={<Login/>}></Route>
+      <Route path='signup' element={<Signup/>}></Route>
+      <Route path="chart" element={<Chart />} />
+      </Route>
      </Routes>
     </div>
     </BrowserRouter>
